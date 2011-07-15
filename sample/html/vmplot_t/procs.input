@@ -1,0 +1,13 @@
+set term png small
+set output "procs.png"
+set title "Procs"
+set xdata time
+set timefmt "%H:%M:%S"
+set format x "%H:%M:%S"
+set grid xtics ytics
+set xtics rotate by 90 offset 0,-3.5
+set ylabel "Count"
+set size 0.9, 0.9
+set yrange [0:]
+plot "vmstat_t.data" using 1:2 title "waiting for run time" with lines, \
+     "vmstat_t.data" using 1:3 title "in uninterruptible sleep" with lines

@@ -1,0 +1,10 @@
+set term png small
+set output "io.png"
+set title "IO"
+set grid xtics ytics
+set xlabel "Elapsed Time (Minutes)"
+set ylabel "Blocks per Second"
+set size 0.9,0.9
+set yrange [0:]
+plot "vmstat.data" using 1:10 title "received from device" with lines, \
+     "vmstat.data" using 1:11 title "sent to device" with lines

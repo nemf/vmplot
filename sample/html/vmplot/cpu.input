@@ -1,0 +1,13 @@
+set term png small
+set output "cpu.png"
+set title "System Processor Utilization"
+set grid xtics ytics
+set xlabel "Elapsed Time (Minutes)"
+set ylabel "% Utilized"
+set size 0.9,0.9
+set yrange [0:100]
+plot "vmstat.data" using 1:18 title "total" with lines, \
+     "vmstat.data" using 1:14 title "user" with lines, \
+     "vmstat.data" using 1:15 title "system" with lines, \
+     "vmstat.data" using 1:16 title "idle" with lines, \
+     "vmstat.data" using 1:17 title "wait" with lines

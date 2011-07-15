@@ -1,0 +1,10 @@
+set term png small
+set output "swap.png"
+set title "Swap"
+set grid xtics ytics
+set xlabel "Elapsed Time (Minutes)"
+set ylabel "Kilobytes / Second"
+set size 0.9,0.9
+set yrange [0:]
+plot "vmstat.data" using 1:8 title "in from disk" with lines, \
+     "vmstat.data" using 1:9 title "out to disk" with lines

@@ -1,0 +1,12 @@
+set term png small
+set output "memory.png"
+set title "Memory"
+set grid xtics ytics
+set xlabel "Elapsed Time (Minutes)"
+set ylabel "Megabytes"
+set size 0.9,0.9
+set yrange [0:]
+plot "vmstat.data" using 1:4 title "Swapped" with lines, \
+     "vmstat.data" using 1:5 title "Free" with lines, \
+     "vmstat.data" using 1:6 title "Buffers" with lines, \
+     "vmstat.data" using 1:7 title "Cache" with lines

@@ -1,0 +1,13 @@
+set term png small
+set output "swap.png"
+set title "Swap"
+set xdata time
+set timefmt "%H:%M:%S"
+set format x "%H:%M:%S"
+set grid xtics ytics
+set xtics rotate by 90 offset 0,-3.5
+set ylabel "Kilobytes / Second"
+set size 0.9, 0.9
+set yrange [0:]
+plot "vmstat_t.data" using 1:8 title "in from disk" with lines, \
+     "vmstat_t.data" using 1:9 title "out to disk" with lines

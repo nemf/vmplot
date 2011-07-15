@@ -1,0 +1,12 @@
+set term png small
+set output "cs.png"
+set title "Context Switches"
+set xdata time
+set timefmt "%H:%M:%S"
+set format x "%H:%M:%S"
+set grid xtics ytics
+set xtics rotate by 90 offset 0,-3.5
+set ylabel "# of Context Switches / Second"
+set size 0.9, 0.9
+set yrange [0:]
+plot "vmstat_t.data" using 1:13 title "context switches" with lines

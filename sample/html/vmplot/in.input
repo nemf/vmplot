@@ -1,0 +1,9 @@
+set term png small
+set output "in.png"
+set title "Interrupts"
+set grid xtics ytics
+set xlabel "Elapsed Time (Minutes)"
+set ylabel "# of Interrupts / Second"
+set size 0.9,0.9
+set yrange [0:]
+plot "vmstat.data" using 1:12 title "interrupts" with lines

@@ -1,0 +1,9 @@
+set term png small
+set output "cs.png"
+set title "Context Switches"
+set grid xtics ytics
+set xlabel "Elapsed Time (Minutes)"
+set ylabel "# of Context Switches / Second"
+set size 0.9,0.9
+set yrange [0:]
+plot "vmstat.data" using 1:13 title "context switches" with lines
